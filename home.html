@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FureverFriends</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css" >
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -20,11 +21,12 @@
                 <li><a href="#aboutDogs">About Dogs</a></li>
                 <li><a href="#careTip">Care Tips</a></li>
                 <li><a href="#Gallery">Gallery</a></li>
-                <li><a href="#adopt"  id="adoptNav">Adopt</a></li>
+                <li><a href="#adopt" id="adoptNav">Adopt</a></li>
+                <li><a href="#" id="loginNav">Login</a></li>
             </ul>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <div class="container">
         <div class="hero-section" id="home">
@@ -47,13 +49,13 @@
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
                     <h3>Man's Best Friend</h3>
-                    <p>Dogs have been our loyal companions for thousands of years. 
-                        They come in all shapes, sizes, and personalities, each with 
-                        their own unique charm. From tiny Chihuahuas to majestic Great Danes, 
+                    <p>Dogs have been our loyal companions for thousands of years.
+                        They come in all shapes, sizes, and personalities, each with
+                        their own unique charm. From tiny Chihuahuas to majestic Great Danes,
                         there's a perfect canine companion for everyone.</p>
                     <p>Dogs are incredibly intelligent and emotionally intuitive animals.
-                         They can understand human emotions, form deep bonds with their families, 
-                         and provide unconditional love and companionship.</p>
+                        They can understand human emotions, form deep bonds with their families,
+                        and provide unconditional love and companionship.</p>
                     <p>Popular dog breeds include:</p>
                     <div class="breeds-grid">
                         <div class="breed-item">Labrador</div>
@@ -92,7 +94,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="tip-card animate-on-scroll">
                     <div class="tip-icon">
                         <i class="fas fa-heartbeat"></i>
@@ -107,7 +109,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="tip-card animate-on-scroll">
                     <div class="tip-icon">
                         <i class="fas fa-paw"></i>
@@ -138,7 +140,7 @@
                         <p>Golden Retriever, 3 months</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item animate-on-scroll">
                     <img src="images/dog2.jpg" alt="Husky with blue eyes">
                     <div class="gallery-overlay">
@@ -146,7 +148,7 @@
                         <p>Siberian Husky, 2 years</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item animate-on-scroll">
                     <img src="images/dog3.jpg" alt="Beagle playing">
                     <div class="gallery-overlay">
@@ -154,7 +156,7 @@
                         <p>Beagle, 1 year</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item animate-on-scroll">
                     <img src="images/dog4.jpg" alt="French Bulldog">
                     <div class="gallery-overlay">
@@ -162,7 +164,7 @@
                         <p>French Bulldog, 4 months</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item animate-on-scroll">
                     <img src="images/dog5.jpg" alt="Labrador swimming">
                     <div class="gallery-overlay">
@@ -170,7 +172,7 @@
                         <p>Labrador Retriever, 3 years</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item animate-on-scroll">
                     <img src="images/dog6.jpg" alt="Poodle with haircut">
                     <div class="gallery-overlay">
@@ -178,7 +180,7 @@
                         <p>Poodle, 5 years</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item animate-on-scroll">
                     <img src="images/dog7.jpg" alt="Corgi running">
                     <div class="gallery-overlay">
@@ -186,7 +188,7 @@
                         <p>Pembroke Welsh Corgi, 2 years</p>
                     </div>
                 </div>
-                
+
                 <div class="gallery-item animate-on-scroll">
                     <img src="images/dog8.jpg" alt="Dachshund sleeping">
                     <div class="gallery-overlay">
@@ -197,6 +199,32 @@
             </div>
         </div>
     </section>
+
+     <!-- ===== LOGIN / SIGNUP MODAL ===== -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeAuthModal">&times;</span>
+
+            <!-- LOGIN FORM -->
+            <div id="loginForm">
+                <h2>Welcome Back</h2>
+                <input type="text" id="loginUsername" placeholder="Username">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button id="loginBtn">Login</button>
+                <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+            </div>
+
+            <!-- SIGNUP FORM -->
+            <div id="signupForm" style="display:none;">
+                <h2>Create Account</h2>
+                <input type="text" id="signupUsername" placeholder="Username">
+                <input type="email" id="signupEmail" placeholder="Email">
+                <input type="password" id="signupPassword" placeholder="Password">
+                <button id="signupBtn">Sign Up</button>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+        </div>
+    </div>
 
     <!--Adoption Form-->
     <div class="modal" id="adoptModal">
@@ -209,25 +237,27 @@
                     <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
                     <div class="error-message" id="nameError">Please enter your full name (at least 3 characters)</div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email">
                     <div class="error-message" id="emailError">Please enter a valid email address</div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                    <div class="error-message" id="phoneError">Please enter a valid phone number (at least 10 digits)</div>
+                    <div class="error-message" id="phoneError">Please enter a valid phone number (at least 10 digits)
+                    </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="address">Address</label>
                     <input type="text" id="address" name="address" placeholder="Enter your full address">
-                    <div class="error-message" id="addressError">Please enter your address (at least 10 characters)</div>
+                    <div class="error-message" id="addressError">Please enter your address (at least 10 characters)
+                    </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="dogInterest">Dog You're Interested In</label>
                     <select id="dogInterest" name="dogInterest">
@@ -243,27 +273,27 @@
                         <option value="other">Not Sure Yet</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="experience">Your Experience with Dogs</label>
-                    <textarea id="experience" name="experience" placeholder="Tell us about your experience with dogs, if any..."></textarea>
+                    <textarea id="experience" name="experience"
+                        placeholder="Tell us about your experience with dogs, if any..."></textarea>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="home">Home Environment</label>
-                    <textarea id="home" name="home" placeholder="Describe your home, yard, family members, other pets..."></textarea>
-                    <div class="error-message" id="homeError">Please describe your home environment (at least 20 characters)</div>
+                    <textarea id="home" name="home"
+                        placeholder="Describe your home, yard, family members, other pets..."></textarea>
+                    <div class="error-message" id="homeError">Please describe your home environment (at least 20
+                        characters)</div>
                 </div>
-                
+
                 <button type="submit" class="submit-btn">Submit Application</button>
             </form>
-            <script>
-        function submitForm() {
-            const name = document.getElementById('name').value;
-            alert("Thank you, " + name + "! Your message has been sent. We'll get back to you soon.");
-            return false;
-        }
-    </script>
+        </div>
+        <div id="successMessage" class="success-message" style="display:none;">
+            <h3>Thank you for your adoption application!</h3>
+            <p>We will review your information and contact you soon.</p>
         </div>
     </div>
 
@@ -273,7 +303,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>FureverFriends</h3>
-                    <p>We're dedicated to finding loving homes for dogs in need. Our mission is to connect wonderful dogs with caring families to create lifelong bonds.</p>
+                    <p>We're dedicated to finding loving homes for dogs in need. Our mission is to connect wonderful
+                        dogs with caring families to create lifelong bonds.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -281,7 +312,7 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
@@ -292,26 +323,28 @@
                         <li><a href="#adopt"><i class="fas fa-paw"></i> Adopt</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> P847+ Mephi, Kathmandu</a></li>
                         <li><a href="tel:+11234567890"><i class="fas fa-phone"></i> +977 9804578102</a></li>
-                        <li><a href="mailto:info@fureverfriends.com"><i class="fas fa-envelope"></i> info@fureverfriends.com</a></li>
+                        <li><a href="mailto:info@fureverfriends.com"><i class="fas fa-envelope"></i>
+                                info@fureverfriends.com</a></li>
                         <li><a href="#"><i class="fas fa-clock"></i> Mon-Sat: 9AM - 6PM</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="copyright">
-                <p>&copy; 2023 FureverFriends. All rights reserved. | Designed with <i class="fas fa-heart"></i> for dogs everywhere</p>
+                <p>&copy; 2023 FureverFriends. All rights reserved. | Designed with <i class="fas fa-heart"></i> for
+                    dogs everywhere</p>
             </div>
         </div>
     </footer>
 
-   <script src="script.js"></script>
-   
-     
+    <script src="script.js"></script>
+
 </body>
+
 </html>
