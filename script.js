@@ -166,3 +166,106 @@
                 }
             });
         });
+
+
+              // ===== AUTH MODAL FUNCTIONALITY =====
+        const authModal = document.getElementById('authModal');
+        const loginNav = document.getElementById('loginNav');
+        const closeAuthBtn = document.getElementById('closeAuthModal');
+        const showSignup = document.getElementById('showSignup');
+        const showLogin = document.getElementById('showLogin');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        
+        // Open auth modal
+        loginNav.addEventListener('click', (e) => {
+            e.preventDefault();
+            authModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close auth modal
+        closeAuthBtn.addEventListener('click', () => {
+            authModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Switch to signup form
+        showSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        });
+        
+        // Switch to login form
+        showLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        });
+        
+        // Login functionality
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if(username && password) {
+                alert(`Login successful! Welcome back, ${username}!`);
+                authModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                // Change login to logout
+                loginNav.textContent = 'Logout';
+                loginNav.href = '#';
+                loginNav.id = 'logoutNav';
+                
+                // Add logout functionality
+                document.getElementById('logoutNav').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loginNav.textContent = 'Login';
+                    loginNav.id = 'loginNav';
+                    alert('You have been logged out successfully.');
+                    // Re-attach login functionality
+                    loginNav.addEventListener('click', openAuthModal);
+                });
+            } else {
+                alert('Please enter both username and password');
+            }
+        });
+        
+        // Signup functionality
+        document.getElementById('signupBtn').addEventListener('click', () => {
+            const username = document.getElementById('signupUsername').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            
+            if(username && email && password) {
+                alert(`Account created successfully! Welcome, ${username}!`);
+                signupForm.style.display = 'none';
+                loginForm.style.display = 'block';
+                
+                // Clear form
+                document.getElementById('signupUsername').value = '';
+                document.getElementById('signupEmail').value = '';
+                document.getElementById('signupPassword').value = '';
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                authModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Function to open auth modal (for re-attaching after logout)
+        function openAuthModal(e) {
+            e.preventDefault();
+            authModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+       
